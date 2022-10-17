@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Box, Button, Container, Typography } from "@mui/material";
+import { Box, Button, Container, Fade, Modal, Typography } from "@mui/material";
 import Background from "../Assets/images/bg3.jpg";
 import SignUp from "../components/Auth/SignUp";
 import Login from "../components/Auth/Login";
@@ -18,6 +18,10 @@ const Home = () => {
   const handleSignup = () => {
     setActiveBtn("signup");
   };
+
+  const [openModal, setOpenModal] = useState(false);
+  const handleOpenModal = () => setOpenModal(true);
+  const handleCloseModal = () => setOpenModal(false);
 
   useEffect(() => {
     const userInfo = JSON.parse(localStorage.getItem("userInfo"));
@@ -83,7 +87,7 @@ const Home = () => {
           Sign Up
         </Button>
       </Box>
-      <Box>{activeBtn === "login" ? <Login /> : <SignUp />}</Box>
+      <Box>{activeBtn === "login" ? <Login /> : <SignUp s />}</Box>
     </Container>
   );
 };

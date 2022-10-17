@@ -29,7 +29,6 @@ const style = {
 const ProfileModal = ({ openModal, handleCloseModal }) => {
   const { user } = ChatState();
   return (
-    <div>
       <Modal
         aria-labelledby="transition-modal-title"
         aria-describedby="transition-modal-description"
@@ -76,7 +75,6 @@ const ProfileModal = ({ openModal, handleCloseModal }) => {
           </Box>
         </Fade>
       </Modal>
-    </div>
   );
 };
 

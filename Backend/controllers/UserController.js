@@ -43,7 +43,9 @@ exports.createuser = async (req, res) => {
 exports.loginuser = async (req, res) => {
   try {
     const { email, password } = req.body;
+    console.log(email, password);
     const user = await User.findOne({ email });
+
     if (!user) {
       throw new Error("Invalid email or password", 401);
     }
@@ -64,7 +66,6 @@ exports.loginuser = async (req, res) => {
       pic: user.pic,
       token: generateToken(user._id),
     });
-    
   } catch (err) {
     res.status(500).json({
       success: false,
